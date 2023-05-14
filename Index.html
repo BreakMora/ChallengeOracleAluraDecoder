@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Style.css">
+        <title>Encriptador</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <img class="Logo" alt="Logo Alura" src="Imagenes/Vector.png">
+        </header>
+
+        <main>
+            <section>
+                <textarea class="Texto-a-Codificar" id="textoCodificar" placeholder="Ingrese el texto a codificar aquí..." cols="50" rows="25"></textarea>
+                <div class="Mensaje-Condicion">
+                    <p>Solo letras minúsculas y sin acentos.</p> 
+                </div>
+                <div class="Botones">
+                    <button class="encriptar" onclick="botonEncriptar()">Encriptar </button>
+                    <button class="desencriptar" onclick="botonDesencriptar()">Desencriptar</button>
+                </div>
+            </section>
+            <section class="Zona-de-Codificacion">
+                <div class="Mensaje-Aviso" id="mensajeAviso">
+                    <p>
+                        ¡Texto encriptado con éxito!
+                    <p>
+                </div>
+                <img class="Muneco" id="Muneco" alt="Logo sin Codificar" src="Imagenes/muneco.png">
+                <div class="Mensaje-Vacio">
+                    <h2 id="tituloVacio">
+                        Ningún mensaje fue encontrado
+                    </h2>
+                    <p id="parrafoVacio">
+                        Ingresa el texto que desees encriptar o desencriptar.
+                    </p>
+                </div>
+                <textarea class="Texto-Codificado" id="textoCoD" cols="30" rows="15"></textarea>    
+                <div>
+                    <button class="copiar" id="copiar" onclick="Copiar()">Copiar</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="copyright">&copy Copyright Edgar Mora - 2023</p>
+        </footer>
+        
+        <script src="Script.js"></script>
+    </body>
+</html>
