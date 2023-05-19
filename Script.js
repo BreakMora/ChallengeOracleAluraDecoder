@@ -1,5 +1,5 @@
-const textarea = document.querySelector(".Texto-a-Codificar");
-const mensaje = document.querySelector(".Texto-Codificado");
+const textarea = document.querySelector(".TextoCodificar");
+const mensaje = document.querySelector(".TextoCodificado");
 
 /*
 La letra "e" es convertida para "enter"
@@ -31,6 +31,7 @@ function botonEncriptar(){
             mensajeAviso.textContent = "¡Texto Encriptado con éxito!";
             parrafoVacio.textContent = "";
             Muneco.style.display="none";
+            console.log();
         }
         else{
             mensaje.value="";
@@ -44,6 +45,10 @@ function botonEncriptar(){
             textoCodificar.length=0;
             alert("No se encontro ningun texto para encriptar.");
         }
+    }
+    else{
+        
+        alert("No se pueden encriptar numeros o signo de puntuacion.");
     }
 }
 
@@ -67,7 +72,7 @@ function botonDesencriptar(){
             textoCoD.style.display="flex";
             textoCoD.style.visibility="visible";
             mensajeAviso.style.display="flex";
-            mensajeAviso.textContent = "¡Texto desencriptado con éxito!";
+            mensajeAviso.textContent = "¡Texto Desencriptado con éxito!";
             parrafoVacio.textContent = "";
             Muneco.style.display="none";
         }

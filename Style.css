@@ -16,7 +16,7 @@ body{
     left: 30px;
 }
 
-.Texto-a-Codificar{
+.TextoCodificar{
     /*texto*/
     font-style: normal;
     font-weight: 400;
@@ -41,10 +41,10 @@ body{
     outline: none;
 }
 
-.Mensaje-Condicion{
+.MensajeCondicion{
     /*texto*/
     font-style: normal;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 14px;
     line-height: 150%;
 
@@ -61,35 +61,23 @@ body{
     top: 73%;
 
     /*altura y anchura*/
-    width: 250px;
+    width: 275px;
 }
 
 .Botones{
-    /*posicion*/
     position: absolute;
     top: 75%;
     left: 100px;
-
-    width: 680px;
-    height: 67px;
-    
-    /*forma y area*/
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 10px 0px;
-    gap: 24px;
 }
 
-.encriptar{
+#encriptar{
     /*anchura y forma*/
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    gap: 8px;
     padding: 24px;
-    margin-right: 24px;
+    margin: 0 24px 0 24px;
 
     width: 328px;
     height: 67px;
@@ -111,15 +99,16 @@ body{
     color: #FFFFFF;
 }
 
-.encriptar:hover{
+#encriptar:hover{
     background: #ffffff;
     color: #0a3871;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer;
 }
 
-.desencriptar{
+#desencriptar{
     /*anchura y forma*/
+    margin: 0px 24px 0 24px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -150,16 +139,16 @@ body{
     color: #0a3871;
 }
 
-.desencriptar:hover{
+#desencriptar:hover{
     background: #0a3871;
     color: #ffffff;
     border: 1px solid #ffffff;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer;
 }
 
 
-.Zona-de-Codificacion{
+.ZonaCodificacion{
     /*posicion*/
     position: absolute;
     top: 60px;
@@ -175,7 +164,7 @@ body{
     height: 80%;
 }
 
-.Mensaje-Aviso{
+#mensajeAviso{
     display: none;
     justify-content: center;
 
@@ -190,12 +179,12 @@ body{
     /*texto*/
     color: #0a3871;
     font-style:italic;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 16px;    
     line-height: 25px;
 }
 
-.Muneco{
+#Muneco{
     display: flex;
 
     /*posicion*/
@@ -209,7 +198,7 @@ body{
 }
 
 
-.Mensaje-Vacio{
+.MensajeVacio{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -225,7 +214,7 @@ body{
     justify-content: center;
 }
 
-.Mensaje-Vacio h2{
+#tituloVacio{
     /*color y alinamiento*/
     color: #343a40;
     /*anchura*/
@@ -237,7 +226,7 @@ body{
     line-height: 120%;
 }
 
-.Mensaje-Vacio p{
+#parrafoVacio{
     /*color y alineamiento*/
     color: #495057;
     /*anchura*/
@@ -249,16 +238,16 @@ body{
     line-height: 150%;
 }
 
-.Texto-Codificado{
+.TextoCodificado{
     /* si no se usa no lo ve el usuario, puede ser util si el usuario no ah escrito nada para codificar aun.*/
     display: none;
+    pointer-events: none;;
 
     /*color y alineamiento*/
     text-align: start;
     background-color: #FFFFFF;
     color: #0a3871;
     border: none;
-
 
     /*posicion*/
     position: absolute;
@@ -282,21 +271,17 @@ body{
 .copiar{
     box-sizing: border-box;
     display: none;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
     padding: 24px;
-    gap: 8px;
     cursor: pointer;
 
     /*posicion*/
     position: absolute;
-    width: 75%;
-    height: 65px;
-    top: 84.5%;
+    width: 80%;
+    height: 69px;
+    top: 84.1%;
     left: 12.5%;
 
-    /*bode*/
+    /*borde*/
     border: 1px solid #0a3871;
     background: #ffffff;
     color: #0a3871;
@@ -314,7 +299,7 @@ body{
     background: #0a3871;
     color: #ffffff;
     border: 1px solid #0a3871;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer;
 }
 
