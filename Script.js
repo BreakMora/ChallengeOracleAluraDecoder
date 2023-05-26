@@ -9,88 +9,64 @@ La letra "o" es convertida para "ober"
 La letra "u" es convertida para "ufat"
 */
 
-function botonEncriptar(){
+const mensajeAviso = document.getElementById("mensajeAviso");
+const tituloVacio = document.getElementById("tituloVacio");
+const parrafoVacio = document.getElementById("parrafoVacio");
+const Muneco = document.getElementById("Muneco");
+const textoCoD = document.getElementById("textoCoD");
+const copiar = document.querySelector(".copiar");
 
-    let textoCodificar = document.getElementById("textoCodificar").value;
-    let mensajeAviso = document.getElementById("mensajeAviso");
-    let tituloVacio = document.getElementById("tituloVacio");
-    let parrafoVacio = document.getElementById("parrafoVacio");
-    let Muneco = document.getElementById("Muneco");
-    let textoCoD = document.getElementById("textoCoD");
-    let copiar = document.querySelector(".copiar");
-
-    if(revisarTexto(textoCodificar)==true){
-        const textoEncriptado = Encriptar(textarea.value);
-        if(textoCodificar!=0 && textoEncriptado!=0){
-            mensaje.value = textoEncriptado;
-            textarea.value = "";
-            copiar.style.display="block";
-            textoCoD.style.display="flex";
-            textoCoD.style.visibility="visible";
-            mensajeAviso.style.display="flex";
-            mensajeAviso.textContent = "¡Texto Encriptado con éxito!";
-            parrafoVacio.textContent = "";
-            Muneco.style.display="none";
-            console.log();
-        }
-        else{
-            mensaje.value="";
-            mensajeAviso.style.display = "none";
-            Muneco.style.display="flex";
-            Muneco.src="./Imagenes/muneco.png";
-            textoCoD.style.display="none";
-            tituloVacio.textContent="Ningún mensaje fue encontrado";
-            parrafoVacio.textContent="Ingresa el texto que deseas encriptar o desencriptar"
-            copiar.style.display="none";
-            textoCodificar.length=0;
-            alert("No se encontro ningun texto para encriptar.");
-        }
-    }
-    else{
-        
-        alert("No se pueden encriptar numeros o signo de puntuacion.");
-    }
+function mostrarError(mensaje){
+    alert(mensaje);
 }
 
+function mostrarExito(textoEnDes,mensajeExito){
+    mensaje.value = textoEnDes;
+    textarea.value = "";
+    copiar.style.display="block";
+    textoCoD.style.display="flex";
+    textoCoD.style.visibility="visible";
+    mensajeAviso.style.display="flex";
+    mensajeAviso.textContent = mensajeExito;
+    parrafoVacio.textContent = "";
+    Muneco.style.display="none";
+}
+
+function mostrarMensajeVacio(){
+    mensaje.value = "";
+    mensajeAviso.style.display = "none";
+    Muneco.style.display = "flex";
+    Muneco.src = "./Imagenes/muneco.png";
+    textoCoD.style.display = "none";
+    tituloVacio.textContent = "Ningún mensaje fue encontrado";
+    parrafoVacio.textContent = "Ingresa el texto que deseas encriptar o desencriptar"
+    copiar.style.display = "none";
+    textoCodificar.value = "";
+}
+
+function botonEncriptar(){
+    let texto = textarea.value;
+    if(revisarTexto(texto)){
+        const textoEncriptado = encriptar(texto);
+        mostrarExito(textoEncriptado,"¡Texto Encriptado con éxito!");
+    }else{
+        mostrarMensajeVacio();
+        mostrarError("No se pueden encriptar numeros o espacios vacios.");
+    }
+}
 
 function botonDesencriptar(){
-
-    let textoCodificar = document.getElementById("textoCodificar").value;
-    let mensajeAviso = document.getElementById("mensajeAviso");
-    let tituloVacio = document.getElementById("tituloVacio");
-    let parrafoVacio = document.getElementById("parrafoVacio");
-    let Muneco = document.getElementById("Muneco");
-    let textoCoD = document.getElementById("textoCoD");
-    let copiar = document.querySelector(".copiar");
-
-    if(revisarTexto(textoCodificar)==true){
-        if(textoCodificar!=0){
-            const textoDesencriptado = Desencriptar(textarea.value);
-            mensaje.value = textoDesencriptado;
-            textarea.value = "";
-            copiar.style.display="block";
-            textoCoD.style.display="flex";
-            textoCoD.style.visibility="visible";
-            mensajeAviso.style.display="flex";
-            mensajeAviso.textContent = "¡Texto Desencriptado con éxito!";
-            parrafoVacio.textContent = "";
-            Muneco.style.display="none";
-        }
-        else{
-            Muneco.style.display="flex";
-            Muneco.src="./Imagenes/muneco.png";
-            textoCoD.style.display="none";
-            mensajeAviso.style.display="none";
-            tituloVacio.textContent="Ningún mensaje fue encontrado";
-            parrafoVacio.textContent="Ingresa el texto que deseas encriptar o desencriptar"
-            copiar.style.display="none";
-            textoCodificar.length=0;
-            alert("No se encontro ningun texto para desencriptar.");
-        }
+    let texto = textarea.value;
+    if(revisarTexto(texto)){
+        const textoDesencriptado = desencriptar(texto);
+        mostrarExito(textoDesencriptado,"¡Texto Desencriptado con éxito!");
+    } else{
+        mostrarMensajeVacio();
+        mostrarError("No se pueden desencriptar numeros o espacios vacios.");
     }
 }
 
-function Encriptar(textoEncritado){
+function encriptar(textoEncritado){
     let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
 
     textoEncritado = textoEncritado.toLowerCase();
@@ -103,7 +79,7 @@ function Encriptar(textoEncritado){
     return textoEncritado;
 }
 
-function Desencriptar(textoDesencriptado){
+function desencriptar(textoDesencriptado){
     let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
 
     textoDesencriptado = textoDesencriptado.toLowerCase();
@@ -116,22 +92,18 @@ function Desencriptar(textoDesencriptado){
     return textoDesencriptado;
 }
 
-document.getElementById("copiar").onclick=function(){
+document.getElementById("copiar").onclick = () => {
     let textoCoD = document.getElementById("textoCoD").value;
 
     navigator.clipboard.writeText(textoCoD)
     .then(()=>{ alert("Texto copiado en el portapapeles");})
-}
+};
 
 function revisarTexto(texto){
-    let revisartexto=false;
-    if (/^[a-z\s\-\_\.\,\:\;\!\?\ñ]+$/.test(texto)) {
-        revisartexto=true;
+    if(texto.trim()==''){
+        return false
     }
-    if(texto.length==0){
-        revisartexto=true;
-    }
-    return revisartexto;
+    return /^[a-z\s\-\_\.\,\:\;\!\?\ñ]+$/.test(texto);
 }
 
 window.addEventListener('load',function(){ 
